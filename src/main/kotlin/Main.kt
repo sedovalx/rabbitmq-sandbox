@@ -128,18 +128,6 @@ fun Channel.createQueue(name: String): AMQP.Queue.DeclareOk {
     return queueDeclare(name, false, false, false, null)
 }
 
-suspend fun Channel.isQueueEmpty(name: String): Boolean {
-    repeat(3) {
-        if (createQueue(name).messageCount > 0) {
-            return false
-        }
-
-        delay(50)
-    }
-
-    return true
-}
-
 fun Long.printNano(): String {
     val millis = this / 1_000_000
     val rest = this - millis * 1_000_000
