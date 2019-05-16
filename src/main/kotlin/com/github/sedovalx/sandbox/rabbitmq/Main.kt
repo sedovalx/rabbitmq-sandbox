@@ -8,21 +8,27 @@ import mu.KotlinLogging
 const val queueName = "test-queue"
 
 suspend fun main() {
-    runTest(3, 30, false, true, 5, 15)
-    runTest(3, 30, false, true, 3, 6)
-    runTest(3, 30, false, true, 1, 3)
+    "Enabled persistence, manual ack".also {
+        runTest(it, 3, 30, false, true, 3, 6)
+        runTest(it, 3, 30, false, true, 1, 3)
+        runTest(it, 1, 30, false, true, 5, 15)
+        runTest(it, 1, 30, false, true, 3, 6)
+        runTest(it, 1, 30, false, true, 1, 3)
+    }
 
-    runTest(3, 30, true, false, 5, 15)
-    runTest(3, 30, true, false, 3, 6)
-    runTest(3, 30, true, false, 1, 3)
-
-    runTest(1, 30, false, true, 1, 3)
-    runTest(1, 30, true, false, 1, 3)
+    "Disabled persistence, auto ack".also {
+        runTest(it, 3, 30, true, false, 3, 6)
+        runTest(it, 3, 30, true, false, 1, 3)
+        runTest(it, 1, 30, true, false, 5, 15)
+        runTest(it, 1, 30, true, false, 3, 6)
+        runTest(it, 1, 30, true, false, 1, 3)
+    }
 }
 
 private val logger = KotlinLogging.logger {  }
 
 suspend fun runTest(
+    desc: String,
     nodes: Int,
     publishSec: Int,
     autoAck: Boolean,
@@ -46,7 +52,6 @@ suspend fun runTest(
                 while (true) {
                     if (cluster.finished()) {
                         logger.debug { "All messages have been consumed in ${System.currentTimeMillis() - start} ms. " }
-                        logger.info { cluster.printResults(publishSec * 1000L, System.currentTimeMillis() - start) }
                         break
                     }
 
@@ -60,11 +65,14 @@ suspend fun runTest(
         cluster.stopPublishing()
         logger.debug { "Stopped publishing" }
         job.join()
+
+        logger.info { cluster.printResults(desc, publishSec * 1000L, System.currentTimeMillis() - start) }
     }
 }
 
-fun Cluster.printResults(publishingTime: Long, consumingTime: Long): String {
+fun Cluster.printResults(desc: String, publishingTime: Long, consumingTime: Long): String {
     return buildString {
+        appendln(desc)
         appendln("==============================================================================================")
         appendln("Nodes                             $nodesCount")
         appendln("Publishers/consumers per node     $publishersPerNode/$consumersPerNode")
@@ -75,7 +83,6 @@ fun Cluster.printResults(publishingTime: Long, consumingTime: Long): String {
         appendln("Consumed messages                 ${consumedMessages()}")
         appendln("Time to consume, avg              ${averageTimeToConsumeNs().printNano()}")
         appendln("Time to consume, 90pct            ${percentile90TimeToConsumeNs().printNano()}")
-        appendln("==============================================================================================")
         appendln()
     }
 }

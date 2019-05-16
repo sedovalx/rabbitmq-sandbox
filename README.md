@@ -33,107 +33,132 @@ Memory:	32 GB
 
 Results
 ```
-
-==============================================================================================
-Nodes                             3
-Publishers/consumers per node     5/15
-Auto ack                          false
-Messages persistence              true
-Publishing time                   30000 ms
-Consuming time                    35822 ms
-Consumed messages                 839937
-Time to consume, avg              2215.24 ms
-Time to consume, 90pct            2808.17 ms
-==============================================================================================
-
-
+Enabled persistence, manual ack
 ==============================================================================================
 Nodes                             3
 Publishers/consumers per node     3/6
 Auto ack                          false
 Messages persistence              true
 Publishing time                   30000 ms
-Consuming time                    32561 ms
-Consumed messages                 756238
-Time to consume, avg              2200.55 ms
-Time to consume, 90pct            2642.89 ms
-==============================================================================================
+Consuming time                    33042 ms
+Consumed messages                 780206
+Time to consume, avg              2343.23 ms
+Time to consume, 90pct            3175.99 ms
 
 
+Enabled persistence, manual ack
 ==============================================================================================
 Nodes                             3
 Publishers/consumers per node     1/3
 Auto ack                          false
 Messages persistence              true
 Publishing time                   30000 ms
-Consuming time                    33588 ms
-Consumed messages                 795318
-Time to consume, avg              2630.24 ms
-Time to consume, 90pct            3644.41 ms
-==============================================================================================
+Consuming time                    33957 ms
+Consumed messages                 791117
+Time to consume, avg              3308.57 ms
+Time to consume, 90pct            4343.35 ms
 
 
+Enabled persistence, manual ack
 ==============================================================================================
-Nodes                             3
+Nodes                             1
 Publishers/consumers per node     5/15
-Auto ack                          true
-Messages persistence              false
+Auto ack                          false
+Messages persistence              true
 Publishing time                   30000 ms
-Consuming time                    31325 ms
-Consumed messages                 1590910
-Time to consume, avg              1362.23 ms
-Time to consume, 90pct            1640.26 ms
+Consuming time                    31428 ms
+Consumed messages                 714052
+Time to consume, avg              953.50 ms
+Time to consume, 90pct            1151.74 ms
+
+
+Enabled persistence, manual ack
 ==============================================================================================
+Nodes                             1
+Publishers/consumers per node     3/6
+Auto ack                          false
+Messages persistence              true
+Publishing time                   30000 ms
+Consuming time                    30956 ms
+Consumed messages                 725003
+Time to consume, avg              898.60 ms
+Time to consume, 90pct            1068.28 ms
 
 
+Enabled persistence, manual ack
+==============================================================================================
+Nodes                             1
+Publishers/consumers per node     1/3
+Auto ack                          false
+Messages persistence              true
+Publishing time                   30000 ms
+Consuming time                    31022 ms
+Consumed messages                 858458
+Time to consume, avg              812.38 ms
+Time to consume, 90pct            969.71 ms
+
+
+Disabled persistence, auto ack
 ==============================================================================================
 Nodes                             3
 Publishers/consumers per node     3/6
 Auto ack                          true
 Messages persistence              false
 Publishing time                   30000 ms
-Consuming time                    31815 ms
-Consumed messages                 1771966
-Time to consume, avg              1100.73 ms
-Time to consume, 90pct            1377.93 ms
-==============================================================================================
+Consuming time                    31413 ms
+Consumed messages                 1727756
+Time to consume, avg              1189.73 ms
+Time to consume, 90pct            1442.25 ms
 
 
+Disabled persistence, auto ack
 ==============================================================================================
 Nodes                             3
 Publishers/consumers per node     1/3
 Auto ack                          true
 Messages persistence              false
 Publishing time                   30000 ms
-Consuming time                    30572 ms
-Consumed messages                 339922
-Time to consume, avg              2729.25 ms
-Time to consume, 90pct            5831.12 ms
-==============================================================================================
+Consuming time                    30755 ms
+Consumed messages                 375060
+Time to consume, avg              2364.48 ms
+Time to consume, 90pct            6186.21 ms
 
 
+Disabled persistence, auto ack
 ==============================================================================================
 Nodes                             1
-Publishers/consumers per node     1/3
-Auto ack                          false
-Messages persistence              true
+Publishers/consumers per node     5/15
+Auto ack                          true
+Messages persistence              false
 Publishing time                   30000 ms
-Consuming time                    31091 ms
-Consumed messages                 1007675
-Time to consume, avg              692.30 ms
-Time to consume, 90pct            847.67 ms
+Consuming time                    30138 ms
+Consumed messages                 1178964
+Time to consume, avg              0.48 ms
+Time to consume, 90pct            0.98 ms
+
+
+Disabled persistence, auto ack
 ==============================================================================================
+Nodes                             1
+Publishers/consumers per node     3/6
+Auto ack                          true
+Messages persistence              false
+Publishing time                   30000 ms
+Consuming time                    30132 ms
+Consumed messages                 1060578
+Time to consume, avg              0.41 ms
+Time to consume, 90pct            0.85 ms
 
 
+Disabled persistence, auto ack
 ==============================================================================================
 Nodes                             1
 Publishers/consumers per node     1/3
 Auto ack                          true
 Messages persistence              false
 Publishing time                   30000 ms
-Consuming time                    30823 ms
-Consumed messages                 2101670
-Time to consume, avg              333.61 ms
-Time to consume, 90pct            404.87 ms
-==============================================================================================
+Consuming time                    30563 ms
+Consumed messages                 2141849
+Time to consume, avg              296.26 ms
+Time to consume, 90pct            350.35 ms
 ```
