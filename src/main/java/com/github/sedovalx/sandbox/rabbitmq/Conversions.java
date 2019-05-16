@@ -1,3 +1,5 @@
+package com.github.sedovalx.sandbox.rabbitmq;
+
 public class Conversions {
     public static byte[] longToBytes(long l) {
         byte[] result = new byte[8];
